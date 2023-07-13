@@ -18,9 +18,9 @@ import com.vaadin.flow.router.Route;
 public class E6View extends VerticalLayout {
 
     private final Label preguntaLabel;
-    private final Button respuestaButtonA;
-    private final Button respuestaButtonB;
-    private final Button respuestaButtonC;
+    private final Button rButtonA;
+    private final Button rButtonB;
+    private final Button rButtonC;
 
     private final String[] preguntas = {
             "¿Cuál es la capital de Estados Unidos?",
@@ -86,15 +86,15 @@ public class E6View extends VerticalLayout {
         add(header);
 
         preguntaLabel = new Label(preguntas[preguntaActual]);
-        respuestaButtonA = new Button(respuestas[preguntaActual][0]);
-        respuestaButtonB = new Button(respuestas[preguntaActual][1]);
-        respuestaButtonC = new Button(respuestas[preguntaActual][2]);
+        rButtonA = new Button(respuestas[preguntaActual][0]);
+        rButtonB = new Button(respuestas[preguntaActual][1]);
+        rButtonC = new Button(respuestas[preguntaActual][2]);
 
-        respuestaButtonA.addClickListener(e -> evaluarRespuesta(respuestaButtonA.getText()));
-        respuestaButtonB.addClickListener(e -> evaluarRespuesta(respuestaButtonB.getText()));
-        respuestaButtonC.addClickListener(e -> evaluarRespuesta(respuestaButtonC.getText()));
+        rButtonA.addClickListener(e -> evRes(rButtonA.getText()));
+        rButtonB.addClickListener(e -> evRes(rButtonB.getText()));
+        rButtonC.addClickListener(e -> evRes(rButtonC.getText()));
 
-        add(preguntaLabel, respuestaButtonA, respuestaButtonB, respuestaButtonC);
+        add(preguntaLabel, rButtonA, rButtonB, rButtonC);
 
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);
@@ -105,7 +105,7 @@ public class E6View extends VerticalLayout {
         add(demargImg);
     }
 
-    private void evaluarRespuesta(String respuesta) {
+    private void evRes(String respuesta) {
         Dialog dialog = new Dialog();
         dialog.setCloseOnOutsideClick(false);
 
@@ -120,24 +120,24 @@ public class E6View extends VerticalLayout {
             dialog.add(new Label("Respuesta Incorrecta"));
         }
 
-        Button siguienteButton = new Button("Siguiente");
-        siguienteButton.addClickListener(e -> mostrarSiguientePregunta(dialog));
-        contentLayout.add(siguienteButton);
+        Button sigButton = new Button("Siguiente");
+        sigButton.addClickListener(e -> sigPreg(dialog));
+        contentLayout.add(sigButton);
 
         dialog.add(contentLayout);
         dialog.open();
     }
 
-    private void mostrarSiguientePregunta(Dialog dialog) {
+    private void sigPreg(Dialog dialog) {
         dialog.close();
 
         preguntaActual++;
 
         if (preguntaActual < preguntas.length) {
             preguntaLabel.setText(preguntas[preguntaActual]);
-            respuestaButtonA.setText(respuestas[preguntaActual][0]);
-            respuestaButtonB.setText(respuestas[preguntaActual][1]);
-            respuestaButtonC.setText(respuestas[preguntaActual][2]);
+            rButtonA.setText(respuestas[preguntaActual][0]);
+            rButtonB.setText(respuestas[preguntaActual][1]);
+            rButtonC.setText(respuestas[preguntaActual][2]);
         } else {
             removeAll();
 
@@ -146,10 +146,9 @@ public class E6View extends VerticalLayout {
             Label puntajeLabel = new Label("Puntaje total: " + puntajeTotal);
             add(completadoLabel, puntajeLabel);
 
-            // Botón Continuar
-            Button continuarButton = new Button("Continuar");
-            continuarButton.addClickListener(e -> getUI().ifPresent(ui -> ui.navigate("e7")));
-            add(continuarButton);
+            Button conButton = new Button("Continuar");
+            conButton.addClickListener(e -> getUI().ifPresent(ui -> ui.navigate("e7")));
+            add(conButton);
         }
     }
 }

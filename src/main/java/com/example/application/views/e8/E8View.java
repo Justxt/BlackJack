@@ -29,39 +29,38 @@ public class E8View extends VerticalLayout {
         demargImg.setWidth("350px");
         add(demargImg);
 
-        int puntajeLengua = getPuntajeAleatorio();
-        int puntajeMatematicas = getPuntajeAleatorio();
-        int puntajeCienciasNaturales = getPuntajeAleatorio();
-        int puntajeCienciasSociales = getPuntajeAleatorio();
+        int punLengua = punAlea();
+        int punMatematicas = punAlea();
+        int punCienciasNaturales = punAlea();
+        int punCienciasSociales = punAlea();
 
-        int totalPuntaje = puntajeLengua + puntajeMatematicas + puntajeCienciasNaturales + puntajeCienciasSociales;
+        int totalPuntaje = punLengua + punMatematicas + punCienciasNaturales + punCienciasSociales;
 
         Paragraph resultado = new Paragraph();
-        resultado.setText("Tu puntaje total es: " + totalPuntaje);
+        resultado.setText("El puntaje total es: " + totalPuntaje);
         add(resultado);
 
         String mensaje;
 
-        // Verificar si se cumple alguna de las condiciones especiales
         if (totalPuntaje == 21) {
-            mensaje = "¡Blackjack! Se duplican los puntos";
+            mensaje = "¡Blackjack! Se te duplican los puntos";
             totalPuntaje *= 2;
         } else if (totalPuntaje == 30) {
-            mensaje = "¡Trio! Se suman 15 puntos";
+            mensaje = "¡Trio! Se te suman 15 puntos";
             totalPuntaje += 15;
         } else if (totalPuntaje == 52) {
             mensaje = "¡POKER! ¡GANASTE!";
         } else if (totalPuntaje == 40) {
-            mensaje = "¡Cuarenta! Se suman 10 puntos";
+            mensaje = "¡Cuarenta! Se te suman 10 puntos";
             totalPuntaje += 10;
         } else if (totalPuntaje == 4) {
-            mensaje = "¡Rey del As! Se suman 40 puntos";
+            mensaje = "¡Rey del As! Se te suman 40 puntos";
             totalPuntaje += 40;
         } else if (totalPuntaje == 20) {
-            mensaje = "¡Pareja! Se suman 20 puntos";
+            mensaje = "¡Pareja! Se te suman 20 puntos";
             totalPuntaje += 20;
         } else if (totalPuntaje == 13) {
-            mensaje = "¡Rey de Reyes! Se suman 15 puntos";
+            mensaje = "¡Rey de Reyes! Se te suman 15 puntos";
             totalPuntaje += 15;
         } else {
             Image sadMan = new Image("images/sadman.jpg", "SadSpider");
@@ -75,7 +74,7 @@ public class E8View extends VerticalLayout {
         add(mensajeResultado);
 
         Button reiniciarButton = new Button("REINICIAR");
-        reiniciarButton.addClickListener(e -> reiniciarJuego());
+        reiniciarButton.addClickListener(e -> restart());
         add(reiniciarButton);
 
         setSizeFull();
@@ -84,12 +83,12 @@ public class E8View extends VerticalLayout {
         getStyle().set("text-align", "center");
     }
 
-    private int getPuntajeAleatorio() {
+    private int punAlea() {
         Random random = new Random();
-        return random.nextInt(11) + 1; // Generar número aleatorio del 1 al 11
+        return random.nextInt(11) + 1;
     }
 
-    private void reiniciarJuego() {
+    private void restart() {
         getUI().ifPresent(ui -> ui.navigate(E1View.class));
     }
 }

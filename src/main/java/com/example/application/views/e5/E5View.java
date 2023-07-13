@@ -15,9 +15,9 @@ import com.vaadin.flow.router.Route;
 public class E5View extends VerticalLayout {
 
     private final Label preguntaLabel;
-    private final Button respuestaButtonA;
-    private final Button respuestaButtonB;
-    private final Button respuestaButtonC;
+    private final Button rButtonA;
+    private final Button rButtonB;
+    private final Button rButtonC;
 
     private final String[] preguntas = {
             "¿Cuál es la capa más externa de la Tierra?",
@@ -83,15 +83,15 @@ public class E5View extends VerticalLayout {
         add(header);
 
         preguntaLabel = new Label(preguntas[preguntaActual]);
-        respuestaButtonA = new Button(respuestas[preguntaActual][0]);
-        respuestaButtonB = new Button(respuestas[preguntaActual][1]);
-        respuestaButtonC = new Button(respuestas[preguntaActual][2]);
+        rButtonA = new Button(respuestas[preguntaActual][0]);
+        rButtonB = new Button(respuestas[preguntaActual][1]);
+        rButtonC = new Button(respuestas[preguntaActual][2]);
 
-        respuestaButtonA.addClickListener(e -> evaluarRespuesta(respuestaButtonA.getText()));
-        respuestaButtonB.addClickListener(e -> evaluarRespuesta(respuestaButtonB.getText()));
-        respuestaButtonC.addClickListener(e -> evaluarRespuesta(respuestaButtonC.getText()));
+        rButtonA.addClickListener(e -> evRes(rButtonA.getText()));
+        rButtonB.addClickListener(e -> evRes(rButtonB.getText()));
+        rButtonC.addClickListener(e -> evRes(rButtonC.getText()));
 
-        add(preguntaLabel, respuestaButtonA, respuestaButtonB, respuestaButtonC);
+        add(preguntaLabel, rButtonA, rButtonB, rButtonC);
 
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);
@@ -102,7 +102,7 @@ public class E5View extends VerticalLayout {
         add(demargTre);
     }
 
-    private void evaluarRespuesta(String respuesta) {
+    private void evRes(String respuesta) {
         Dialog dialog = new Dialog();
         dialog.setCloseOnOutsideClick(false);
 
@@ -118,23 +118,23 @@ public class E5View extends VerticalLayout {
         }
 
         Button siguienteButton = new Button("Siguiente");
-        siguienteButton.addClickListener(e -> mostrarSiguientePregunta(dialog));
+        siguienteButton.addClickListener(e -> sigPreg(dialog));
         contentLayout.add(siguienteButton);
 
         dialog.add(contentLayout);
         dialog.open();
     }
 
-    private void mostrarSiguientePregunta(Dialog dialog) {
+    private void sigPreg(Dialog dialog) {
         dialog.close();
 
         preguntaActual++;
 
         if (preguntaActual < preguntas.length) {
             preguntaLabel.setText(preguntas[preguntaActual]);
-            respuestaButtonA.setText(respuestas[preguntaActual][0]);
-            respuestaButtonB.setText(respuestas[preguntaActual][1]);
-            respuestaButtonC.setText(respuestas[preguntaActual][2]);
+            rButtonA.setText(respuestas[preguntaActual][0]);
+            rButtonB.setText(respuestas[preguntaActual][1]);
+            rButtonC.setText(respuestas[preguntaActual][2]);
         } else {
             removeAll();
             H3 completadoLabel = new H3("¡CATEGORIA: CIENCIAS NATURALES TERMINADA ;)!");
@@ -142,18 +142,18 @@ public class E5View extends VerticalLayout {
             add(completadoLabel, puntajeLabel);
 
             // Categorías restantes
-            H4 categoriasRestantesLabel = new H4("Categorías restantes:");
+            H4 categoriasRestantesLabel = new H4("Categorías faltantes:");
             add(categoriasRestantesLabel);
 
-            HorizontalLayout categoriasLayout = new HorizontalLayout();
-            categoriasLayout.setJustifyContentMode(FlexComponent.JustifyContentMode.CENTER);
-            categoriasLayout.setWidthFull();
+            HorizontalLayout canCon = new HorizontalLayout();
+            canCon.setJustifyContentMode(FlexComponent.JustifyContentMode.CENTER);
+            canCon.setWidthFull();
 
             Button cienciasSocialesButton = new Button("Ciencias Sociales");
             cienciasSocialesButton.addClickListener(e -> getUI().ifPresent(ui -> ui.navigate("e6")));
 
-            categoriasLayout.add(cienciasSocialesButton);
-            add(categoriasLayout);
+            canCon.add(cienciasSocialesButton);
+            add(canCon);
         }
     }
 }

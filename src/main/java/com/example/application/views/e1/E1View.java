@@ -21,8 +21,7 @@ public class E1View extends VerticalLayout {
         add(img);
 
         Button comenzarButton = new Button("COMENZAR");
-        comenzarButton.addClickListener(e -> navigateToNextView());
-
+        comenzarButton.addClickListener(e -> navegarA());
         add(comenzarButton);
 
         setSizeFull();
@@ -30,7 +29,7 @@ public class E1View extends VerticalLayout {
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
     }
 
-    private void navigateToNextView() {
+    private void navegarA() {
         getUI().ifPresent(ui -> ui.navigate(E2View.class));
     }
 }

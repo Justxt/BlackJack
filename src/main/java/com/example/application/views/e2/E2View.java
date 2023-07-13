@@ -26,7 +26,6 @@ public class E2View extends VerticalLayout {
         H2 header = new H2("CATEGORIAS");
         add(header);
 
-        // Crear las imágenes y botones de categorías
         Image lenguajeImg = new Image("images/lenguaje.jpg", "Lenguaje");
         lenguajeImg.setWidth("200px");
         RouterLink lenguajeLink = new RouterLink("Lenguaje", E3View.class);
@@ -43,13 +42,11 @@ public class E2View extends VerticalLayout {
         cienciasSocialesImg.setWidth("200px");
         RouterLink cienciasSocialesLink = new RouterLink("Ciencias Sociales", E6View.class);
 
-        // Crear los diseños para las categorías y opciones
         VerticalLayout lenguajeLayout = new VerticalLayout(lenguajeImg, lenguajeLink);
         VerticalLayout matematicasLayout = new VerticalLayout(matematicasImg, matematicasLink);
         VerticalLayout cienciasNaturalesLayout = new VerticalLayout(cienciasNaturalesImg, cienciasNaturalesLink);
         VerticalLayout cienciasSocialesLayout = new VerticalLayout(cienciasSocialesImg, cienciasSocialesLink);
 
-        // Configurar el estilo y el salto de línea
         lenguajeLayout.setDefaultHorizontalComponentAlignment(FlexComponent.Alignment.CENTER);
         matematicasLayout.setDefaultHorizontalComponentAlignment(FlexComponent.Alignment.CENTER);
         cienciasNaturalesLayout.setDefaultHorizontalComponentAlignment(FlexComponent.Alignment.CENTER);
