@@ -1,39 +1,51 @@
-# BlackJack
-
-This project can be used as a starting point to create your own Vaadin application with Spring Boot.
-It contains all the necessary configuration and some placeholder files to get you started.
-
-## IMAGENES -
+# BLACKJACK - IMAGENES DEL PROGRAMA CORRIENDO!
+## IMAGENES
 
 -- INICIO
+
 ![image](https://github.com/Justxt/BlackJack/assets/96129728/a5043660-f6bf-4fbb-968b-b19cc3cc88e7)
 
 -- ELECCION CATEGORIAS - PAG 2
+
 ![image](https://github.com/Justxt/BlackJack/assets/96129728/e0168cb7-2633-4950-81d7-73b281a6a3a6)
 
 - CATEGORIA 1 - PAG 3
+- 
 SE MUESTRA LA SECCION DE PREGUNTAS CON UNA OPCION DE RESPUESTAS!
+
 ![image](https://github.com/Justxt/BlackJack/assets/96129728/dc377c61-7221-4cc1-bcde-fbe4167c5266)
 ## SI SE ELIJE UNA RESPUESTA INCORRETA SALTARA UNA VENTANA CON EL AVISO!
+
 ![image](https://github.com/Justxt/BlackJack/assets/96129728/edcc60cf-7056-4ede-b733-55fb9dec95e0)
 ## EN CASO DE HACER UNA ELECCION CORRECTA SALTA UNA VENTANA CON EL AVISO!
+
 ![image](https://github.com/Justxt/BlackJack/assets/96129728/d1b83580-3e1c-4921-b717-4671532ca48b)
 
 - CATEGORIA 2
+- 
 ![image](https://github.com/Justxt/BlackJack/assets/96129728/597a9895-c954-487e-bf27-5d0b76d102aa)
 - CATEGORIA 3
+- 
 ![image](https://github.com/Justxt/BlackJack/assets/96129728/95f70e3d-fbbf-4a31-876d-7650a3d3c7bc)
 - CATEGORIA 4
+- 
 ![image](https://github.com/Justxt/BlackJack/assets/96129728/28f196bf-3a73-4056-96bc-955eca0f2d46)
 
 -- INFORMACION DE COMO FUNCIONA EL JUEGO
 ##AL TERMINAR LA SERIE DE PREGUNTAS SE MOSTRARA UN PUNTAJE Y CONSECUTIVAMENTE UN AVISO DE COMO FUNCIONA EL JUEGO!
+
 ![image](https://github.com/Justxt/BlackJack/assets/96129728/85951031-f99d-4d11-a762-08b717e28fe0)
 
 -- RESULTADOS
 ## AQUI SE MOSTRARA SI TUVISTE SUERTE!
+
 ![image](https://github.com/Justxt/BlackJack/assets/96129728/cd30c002-00bb-4c5a-8e01-fcbda8634a0c)
 
+
+# BlackJack
+
+This project can be used as a starting point to create your own Vaadin application with Spring Boot.
+It contains all the necessary configuration and some placeholder files to get you started.
 
 ## Running the application
 
