@@ -19,31 +19,31 @@ export default function Login() {
   const getLoginDetails = async () => {
     try {
       const response = await fetch("http://localhost:5284/api/Users/login", {
-        //aqui se hace la peticion al backend para logearse
         method: "POST",
         headers: {
           "Content-type": "application/json",
         },
         body: JSON.stringify({
-          // aqui se envian los datos del login al backend
           cedula: loginCedula,
           password: loginPassword,
         }),
       });
+  
       if (response.ok) {
         console.log("Usuario logeado correctamente");
-        const data = await response.json(); //aqui obtenemos la respuesta y el token
-        console.warn(data);
-        localStorage.setItem("token", data.token); // aqui se guarda el token en el localstorage
-        router.push("/dashboard"); // rederigimos al dashboard si se encuentra logeado
+        const data = await response.json();
+        localStorage.setItem("token", data.token);
+        router.push("/dashboard");
       } else {
         const errorMessage = await response.text();
         console.error("Error al loguear usuario:", errorMessage);
       }
     } catch (error) {
-      console.error("Error al hacer la solicitud:", error);
+      console.error("Error al hacer la solicitud:", error); // Imprime errores de red u otros errores de JavaScript
     }
   };
+  
+
 
   // Comprobamos si ya existe un token en el localStorage para redirigir al dashboard
   useEffect(() => {

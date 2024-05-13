@@ -22,7 +22,7 @@ export default function Register() {
   const registerUser = async () => {
     // aqui se hace la peticion al backend para registrarse
     try {
-      const response = await fetch("http://localhost:5284/apiUsers/register", {
+      const response = await fetch("http://localhost:5284/api/Users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
